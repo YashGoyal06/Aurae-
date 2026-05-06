@@ -7,38 +7,40 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
+    <motion.div
+      initial={{ y: -100, x: '-50%', opacity: 0 }}
+      animate={{ y: 0, x: '-50%', opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-100"
+      className="fixed top-6 left-1/2 z-50 w-[95%] md:w-[85%] lg:w-[75%] max-w-screen-xl"
     >
-      <div className="max-w-screen-2xl mx-auto px-6 md:px-12 py-6 flex items-center justify-between">
+      <nav className="bg-white/50 backdrop-blur-2xl border border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] rounded-full px-8 py-4 flex items-center justify-between">
         {/* Left: Links */}
-        <div className="hidden md:flex items-center space-x-12">
-          <Link to="/collection/men" className="nav-link">Men</Link>
-          <Link to="/collection/women" className="nav-link">Women</Link>
-          <Link to="/about" className="nav-link">About</Link>
-          <Link to="/contact" className="nav-link">Contact</Link>
+        <div className="hidden md:flex items-center space-x-8 lg:space-x-12 w-1/3">
+          <Link to="/collection/men" className="nav-link text-xs">Men</Link>
+          <Link to="/collection/women" className="nav-link text-xs">Women</Link>
+          <Link to="/about" className="nav-link text-xs">About</Link>
+          <Link to="/contact" className="nav-link text-xs">Contact</Link>
         </div>
 
         {/* Center: Brand */}
-        <Link to="/" className="text-3xl font-serif tracking-[0.4em] font-light absolute left-1/2 -translate-x-1/2">
-          AURAE
-        </Link>
+        <div className="w-1/3 flex justify-center">
+          <Link to="/" className="text-2xl md:text-3xl font-serif tracking-[0.4em] font-light">
+            AURAE
+          </Link>
+        </div>
 
         {/* Right: Icons */}
-        <div className="flex items-center space-x-6">
-          <button className="hover:text-accent transition-colors"><Search size={20} /></button>
-          <button className="hover:text-accent transition-colors relative">
-            <ShoppingBag size={20} />
-            <span className="absolute -top-2 -right-2 bg-primary text-secondary text-[10px] w-4 h-4 flex items-center justify-center rounded-full">0</span>
+        <div className="flex items-center justify-end space-x-6 w-1/3">
+          <button className="hover:text-neutral-500 transition-colors"><Search size={18} /></button>
+          <button className="hover:text-neutral-500 transition-colors relative">
+            <ShoppingBag size={18} />
+            <span className="absolute -top-1.5 -right-1.5 bg-primary text-white text-[9px] w-3.5 h-3.5 flex items-center justify-center rounded-full">0</span>
           </button>
           <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
-      </div>
+      </nav>
 
       {/* Mobile Menu */}
       <AnimatePresence>
@@ -47,17 +49,18 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t border-neutral-100 overflow-hidden"
+            className="md:hidden mt-4 bg-white/50 backdrop-blur-2xl border border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] rounded-[2rem] overflow-hidden"
           >
             <div className="flex flex-col p-6 space-y-4 text-center">
-              <Link to="/collection/men" className="nav-link" onClick={() => setIsOpen(false)}>Men</Link>
-              <Link to="/collection/women" className="nav-link" onClick={() => setIsOpen(false)}>Women</Link>
-              <Link to="/about" className="nav-link" onClick={() => setIsOpen(false)}>About</Link>
+              <Link to="/collection/men" className="nav-link text-xs" onClick={() => setIsOpen(false)}>Men</Link>
+              <Link to="/collection/women" className="nav-link text-xs" onClick={() => setIsOpen(false)}>Women</Link>
+              <Link to="/about" className="nav-link text-xs" onClick={() => setIsOpen(false)}>About</Link>
+              <Link to="/contact" className="nav-link text-xs" onClick={() => setIsOpen(false)}>Contact</Link>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </motion.div>
   );
 };
 
