@@ -22,7 +22,7 @@ const Navbar = () => {
         </div>
 
         {/* Center: Brand */}
-        <Link to="/" className="text-2xl font-serif tracking-[0.3em] font-medium absolute left-1/2 -translate-x-1/2">
+        <Link to="/" className="text-3xl font-serif tracking-[0.4em] font-light absolute left-1/2 -translate-x-1/2">
           AURAE
         </Link>
 

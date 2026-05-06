@@ -49,7 +49,7 @@ const ProductDetail = () => {
             </div>
             
             <h1 className="text-3xl md:text-4xl font-serif mb-2">{product.name}</h1>
-            <p className="text-xl font-medium mb-8">${product.price}.00</p>
+            <p className="text-xl font-medium mb-8">₹{product.price.toLocaleString()}</p>
 
             <p className="text-sm text-neutral-600 leading-relaxed mb-10">
               {product.description}

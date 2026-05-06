@@ -41,29 +41,49 @@ const Loader = ({ finishLoading }) => {
       initial="hidden"
       animate="show"
       exit="exit"
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-primary"
+      className="fixed inset-0 z-[100] flex flex-col items-center justify-center overflow-hidden"
     >
-      <div className="relative overflow-hidden">
+      {/* Abstract Background */}
+      <div className="absolute inset-0 w-full h-full z-0">
+        <img
+          src="/images/abstract_bg.png"
+          alt="Loading Background"
+          className="w-full h-full object-cover opacity-60 mix-blend-multiply"
+        />
+        <div className="absolute inset-0 bg-[#f9f9f9]/70 backdrop-blur-sm" />
+      </div>
+
+      <div className="relative z-10 flex flex-col items-center space-y-16 w-full max-w-[800px] px-6">
         <motion.div className="flex">
           {letters.map((letter, index) => (
             <motion.span
               key={index}
               variants={item}
-              className="text-5xl md:text-8xl font-serif text-secondary tracking-[0.2em] relative"
-              style={{
-                textShadow: '0 0 20px rgba(255,255,255,0.2)'
-              }}
+              className="text-5xl md:text-7xl font-serif text-primary tracking-[0.3em] drop-shadow-sm"
             >
               {letter}
             </motion.span>
           ))}
         </motion.div>
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 1.5, ease: "easeInOut", delay: 0.5 }}
-          className="h-[1px] bg-secondary/30 mt-4 origin-left"
-        />
+
+        <div className="flex flex-col items-center w-full max-w-[240px] space-y-6">
+          <div className="w-full h-[1px] bg-neutral-300 relative overflow-hidden">
+            <motion.div
+              initial={{ x: '-100%' }}
+              animate={{ x: '100%' }}
+              transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+              className="absolute top-0 left-0 h-full w-[40%] bg-primary"
+            />
+          </div>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8, duration: 1 }}
+            className="text-[10px] uppercase tracking-[0.3em] text-neutral-600"
+          >
+            Entering The Silence
+          </motion.p>
+        </div>
       </div>
     </motion.div>
   );

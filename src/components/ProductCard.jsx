@@ -29,7 +29,7 @@ const ProductCard = ({ product, index }) => {
             <h3 className="text-sm font-medium uppercase tracking-tight">{product.name}</h3>
             <p className="text-xs text-accent mt-1 uppercase tracking-widest">{product.category}</p>
           </div>
-          <span className="text-sm font-medium">${product.price}</span>
+          <span className="text-sm font-medium">₹{product.price.toLocaleString()}</span>
         </div>
       </Link>
     </motion.div>
