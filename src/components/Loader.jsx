@@ -20,19 +20,35 @@ const Loader = ({ finishLoading }) => {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.15,
+        delayChildren: 0.4,
       },
     },
     exit: {
       opacity: 0,
-      y: -20,
+      scale: 0.95,
+      filter: "blur(10px)",
       transition: { ease: "easeInOut", duration: 0.8 }
     }
   };
 
   const item = {
-    hidden: { y: 20, opacity: 0 },
-    show: { y: 0, opacity: 1, transition: { duration: 0.8, ease: [0.6, 0.01, 0.05, 0.95] } },
+    hidden: { 
+      opacity: 0, 
+      filter: "blur(12px)", 
+      scale: 1.2,
+      y: 15
+    },
+    show: { 
+      opacity: 1, 
+      filter: "blur(0px)", 
+      scale: 1,
+      y: 0,
+      transition: { 
+        duration: 1.4, 
+        ease: [0.22, 1, 0.36, 1] // Custom refined cubic-bezier for silky smooth stop
+      } 
+    },
   };
 
   return (
