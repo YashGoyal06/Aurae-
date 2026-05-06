@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import Silk from './Silk';
 
 const Loader = ({ finishLoading }) => {
   const [isDone, setIsDone] = useState(false);
@@ -64,14 +65,10 @@ const Loader = ({ finishLoading }) => {
         initial={{ opacity: 0, scale: 1.1 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 2.5, ease: "easeOut" }}
-        className="absolute inset-0 w-full h-full z-0"
+        className="absolute inset-0 w-full h-full z-0 opacity-80"
       >
-        <img
-          src="/images/abstract_bg.jpg"
-          alt="Loading Background"
-          className="w-full h-full object-cover opacity-60 mix-blend-multiply"
-        />
-        <div className="absolute inset-0 bg-[#f9f9f9]/70 backdrop-blur-sm" />
+        <Silk color="#e6e4dc" speed={2} scale={1.5} noiseIntensity={1} />
+        <div className="absolute inset-0 bg-[#f9f9f9]/40 backdrop-blur-[2px]" />
       </motion.div>
 
       <div className="relative z-10 flex flex-col items-center space-y-16 w-full max-w-[800px] px-6">

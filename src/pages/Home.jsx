@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { PRODUCTS } from '../data/products';
 import ProductCard from '../components/ProductCard';
+import Silk from '../components/Silk';
 import { ArrowRight } from 'lucide-react';
 
 const Home = () => {
@@ -12,12 +13,9 @@ const Home = () => {
       {/* Hero Section */}
       <section className="relative w-full h-screen min-h-[800px] flex items-center justify-center pt-32 overflow-hidden">
         {/* Abstract Background */}
-        <div className="absolute inset-0 w-full h-full z-0">
-          <img
-            src="/images/abstract_bg.jpg"
-            alt="Hero Background"
-            className="w-full h-full object-cover opacity-50 mix-blend-multiply"
-          />
+        <div className="absolute inset-0 w-full h-full z-0 opacity-80">
+          <Silk color="#e6e4dc" speed={2} scale={1.5} noiseIntensity={1} />
+          <div className="absolute inset-0 bg-[#f9f9f9]/40 backdrop-blur-[2px]" />
         </div>
 
         <div className="relative z-10 w-full max-w-[1400px] px-6 md:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
