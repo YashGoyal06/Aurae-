@@ -129,46 +129,40 @@ const Home = () => {
       </section>
 
       {/* Editorial Section */}
-      <section className="relative min-h-[80vh] flex items-center justify-center text-center px-6 overflow-hidden">
+      <section className="relative min-h-[80vh] py-32 flex items-center justify-center text-center px-6 overflow-hidden">
         {/* Deep, dark cinematic background */}
         <div className="absolute inset-0 z-0">
-          <img src="/images/hero.png" className="w-full h-full object-cover object-[center_30%] grayscale" />
-          <div className="absolute inset-0 bg-black/70 backdrop-blur-[2px]" />
+          <img src="/images/hero.png" className="w-full h-full object-cover object-[center_30%] grayscale blur-sm" />
+          <div className="absolute inset-0 bg-black/60" />
         </div>
         
-        <div className="relative z-10 text-white max-w-2xl flex flex-col items-center">
+        <div className="relative z-10 text-white max-w-3xl w-full flex flex-col items-center">
           <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-            className="text-[10px] uppercase tracking-[0.4em] text-white/50 mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="text-[11px] font-sans uppercase tracking-[0.3em] text-white/70 mb-12"
           >
-            The Philosophy
+            THE PHILOSOPHY
           </motion.p>
           
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="text-2xl md:text-3xl lg:text-4xl font-serif italic font-light leading-relaxed md:leading-loose tracking-wide mb-16 text-white/90"
+            transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
+            className="text-3xl md:text-4xl lg:text-5xl font-serif font-normal leading-[1.6] md:leading-[1.7] text-white/95"
           >
-            "We believe in the power of restraint. In an age of excess, true luxury lies in the spaces we choose to leave empty."
+            We believe in the power of restraint. In an age of excess, true luxury lies in the spaces we choose to leave empty.
           </motion.h2>
           
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            whileInView={{ opacity: 1, height: "4rem" }}
-            transition={{ duration: 1, delay: 0.6 }}
-            className="w-px bg-white/20 mb-8"
-          />
-          
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
+            className="mt-16"
           >
-            <Link to="/about" className="text-xs uppercase tracking-widest text-white/70 hover:text-white transition-colors duration-500 pb-2 border-b border-white/20 hover:border-white">
-              Discover Our Story
+            <Link to="/about" className="inline-block text-xs font-sans uppercase tracking-[0.2em] text-white/80 hover:text-white transition-all duration-500 pb-2 border-b border-white/30 hover:border-white">
+              Explore Our Story
             </Link>
           </motion.div>
         </div>
