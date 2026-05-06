@@ -14,6 +14,8 @@ export default {
       fontFamily: {
         serif: ['"Noto Serif"', '"Playfair Display"', "serif"],
         sans: ['"Inter"', "sans-serif"],
+        handwriting: ['"Alex Brush"', 'cursive'],
+        cinzel: ['"Cinzel"', 'serif'],
       },
       animation: {
         'reveal': 'reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) forwards',

@@ -21,28 +21,31 @@ const Loader = ({ finishLoading }) => {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.5,
+        staggerChildren: 0.08,
+        delayChildren: 0.1,
       },
     },
     exit: {
       opacity: 0,
-      y: -30,
+      scale: 1.1,
+      filter: "blur(10px)",
       transition: { ease: "easeInOut", duration: 0.8 }
     }
   };
 
   const item = {
     hidden: { 
-      y: "120%",
-      rotate: 5
+      opacity: 0,
+      scale: 1.5,
+      filter: "blur(20px)",
     },
     show: { 
-      y: 0,
-      rotate: 0,
+      opacity: 1,
+      scale: 1,
+      filter: "blur(0px)",
       transition: { 
-        duration: 1.2, 
-        ease: [0.77, 0, 0.175, 1] // Extremely sharp and premium cubic-bezier
+        duration: 1.5, 
+        ease: [0.22, 1, 0.36, 1] // Silky smooth deceleration
       } 
     },
   };
@@ -67,16 +70,15 @@ const Loader = ({ finishLoading }) => {
       </motion.div>
 
       <div className="relative z-10 flex flex-col items-center space-y-16 w-full max-w-[800px] px-6">
-        <motion.div className="flex space-x-1">
+        <motion.div className="flex space-x-2 md:space-x-4">
           {letters.map((letter, index) => (
-            <div key={index} className="overflow-hidden pb-2">
-              <motion.span
-                variants={item}
-                className="inline-block text-5xl md:text-7xl font-serif text-primary tracking-[0.2em] drop-shadow-sm origin-bottom-left"
-              >
-                {letter}
-              </motion.span>
-            </div>
+            <motion.span
+              key={index}
+              variants={item}
+              className="inline-block text-6xl md:text-[5.5rem] font-cinzel font-medium text-primary tracking-[0.1em] drop-shadow-sm mix-blend-difference"
+            >
+              {letter}
+            </motion.span>
           ))}
         </motion.div>
 
