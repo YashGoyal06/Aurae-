@@ -6,6 +6,8 @@ import Loader from './components/Loader'
 import Home from './pages/Home'
 import Collection from './pages/Collection'
 import ProductDetail from './pages/ProductDetail'
+import About from './pages/About'
+import Contact from './pages/Contact'
 import Footer from './components/Footer'
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/collection/:type" element={<Collection />} />
               <Route path="/product/:id" element={<ProductDetail />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
             <Footer />
           </div>

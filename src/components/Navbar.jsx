@@ -19,6 +19,7 @@ const Navbar = () => {
           <Link to="/collection/men" className="nav-link">Men</Link>
           <Link to="/collection/women" className="nav-link">Women</Link>
           <Link to="/about" className="nav-link">About</Link>
+          <Link to="/contact" className="nav-link">Contact</Link>
         </div>
 
         {/* Center: Brand */}
