@@ -17,37 +17,32 @@ const Loader = ({ finishLoading }) => {
   const letters = brandName.split("");
 
   const container = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 },
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.4,
+        staggerChildren: 0.1,
+        delayChildren: 0.5,
       },
     },
     exit: {
       opacity: 0,
-      scale: 0.95,
-      filter: "blur(10px)",
+      y: -30,
       transition: { ease: "easeInOut", duration: 0.8 }
     }
   };
 
   const item = {
     hidden: { 
-      opacity: 0, 
-      filter: "blur(12px)", 
-      scale: 1.2,
-      y: 15
+      y: "120%",
+      rotate: 5
     },
     show: { 
-      opacity: 1, 
-      filter: "blur(0px)", 
-      scale: 1,
       y: 0,
+      rotate: 0,
       transition: { 
-        duration: 1.4, 
-        ease: [0.22, 1, 0.36, 1] // Custom refined cubic-bezier for silky smooth stop
+        duration: 1.2, 
+        ease: [0.77, 0, 0.175, 1] // Extremely sharp and premium cubic-bezier
       } 
     },
   };
@@ -72,15 +67,16 @@ const Loader = ({ finishLoading }) => {
       </motion.div>
 
       <div className="relative z-10 flex flex-col items-center space-y-16 w-full max-w-[800px] px-6">
-        <motion.div className="flex">
+        <motion.div className="flex space-x-1">
           {letters.map((letter, index) => (
-            <motion.span
-              key={index}
-              variants={item}
-              className="text-5xl md:text-7xl font-serif text-primary tracking-[0.3em] drop-shadow-sm"
-            >
-              {letter}
-            </motion.span>
+            <div key={index} className="overflow-hidden pb-2">
+              <motion.span
+                variants={item}
+                className="inline-block text-5xl md:text-7xl font-serif text-primary tracking-[0.2em] drop-shadow-sm origin-bottom-left"
+              >
+                {letter}
+              </motion.span>
+            </div>
           ))}
         </motion.div>
 

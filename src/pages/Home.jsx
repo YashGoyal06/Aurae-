@@ -132,11 +132,11 @@ const Home = () => {
       <section className="relative min-h-[80vh] flex items-center justify-center text-center px-6 overflow-hidden">
         {/* Deep, dark cinematic background */}
         <div className="absolute inset-0 z-0">
-          <img src="/images/hero.png" className="w-full h-full object-cover grayscale" />
+          <img src="/images/hero.png" className="w-full h-full object-cover object-[center_30%] grayscale" />
           <div className="absolute inset-0 bg-black/70 backdrop-blur-[2px]" />
         </div>
         
-        <div className="relative z-10 text-white max-w-4xl flex flex-col items-center">
+        <div className="relative z-10 text-white max-w-2xl flex flex-col items-center">
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -150,11 +150,9 @@ const Home = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="text-3xl md:text-5xl font-serif font-light leading-[1.6] md:leading-[1.5] tracking-wide mb-16 text-white/90"
+            className="text-3xl md:text-4xl lg:text-5xl font-serif font-light leading-[1.6] md:leading-[1.5] tracking-wide mb-16 text-white/90"
           >
-            We believe in the power of restraint.<br className="hidden md:block" /> 
-            In an age of excess, true luxury lies in the<br className="hidden md:block" /> 
-            spaces we choose to leave empty.
+            We believe in the power of restraint. In an age of excess, true luxury lies in the spaces we choose to leave empty.
           </motion.h2>
           
           <motion.div
