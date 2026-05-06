@@ -46,7 +46,7 @@ const Loader = ({ finishLoading }) => {
       {/* Abstract Background */}
       <div className="absolute inset-0 w-full h-full z-0">
         <img
-          src="/images/abstract_bg.png"
+          src="/images/abstract_bg.jpg"
           alt="Loading Background"
           className="w-full h-full object-cover opacity-60 mix-blend-multiply"
         />

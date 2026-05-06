@@ -14,31 +14,34 @@ const Navbar = () => {
       className="fixed top-6 left-1/2 z-50 w-[95%] md:w-[85%] lg:w-[75%] max-w-screen-xl"
     >
       <nav className="bg-white/50 backdrop-blur-2xl border border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] rounded-full px-8 py-4 flex items-center justify-between">
-        {/* Left: Links */}
-        <div className="hidden md:flex items-center space-x-8 lg:space-x-12 w-1/3">
-          <Link to="/collection/men" className="nav-link text-xs">Men</Link>
-          <Link to="/collection/women" className="nav-link text-xs">Women</Link>
-          <Link to="/about" className="nav-link text-xs">About</Link>
-          <Link to="/contact" className="nav-link text-xs">Contact</Link>
-        </div>
+        {/* Left: Brand (Home) */}
+        <Link to="/" className="text-xl md:text-2xl font-serif tracking-[0.3em] font-light">
+          AURAE
+        </Link>
 
-        {/* Center: Brand */}
-        <div className="w-1/3 flex justify-center">
-          <Link to="/" className="text-2xl md:text-3xl font-serif tracking-[0.4em] font-light">
-            AURAE
-          </Link>
-        </div>
+        {/* Right: Links & Icons */}
+        <div className="flex items-center space-x-6 lg:space-x-8">
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
+            <Link to="/" className="nav-link text-xs">Home</Link>
+            <Link to="/collection/men" className="nav-link text-xs">Men</Link>
+            <Link to="/collection/women" className="nav-link text-xs">Women</Link>
+            <Link to="/about" className="nav-link text-xs">About</Link>
+            <Link to="/contact" className="nav-link text-xs">Contact</Link>
+          </div>
+          
+          {/* Divider */}
+          <div className="hidden md:block w-px h-4 bg-neutral-300"></div>
 
-        {/* Right: Icons */}
-        <div className="flex items-center justify-end space-x-6 w-1/3">
-          <button className="hover:text-neutral-500 transition-colors"><Search size={18} /></button>
-          <button className="hover:text-neutral-500 transition-colors relative">
-            <ShoppingBag size={18} />
-            <span className="absolute -top-1.5 -right-1.5 bg-primary text-white text-[9px] w-3.5 h-3.5 flex items-center justify-center rounded-full">0</span>
-          </button>
-          <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          <div className="flex items-center space-x-6">
+            <button className="hover:text-neutral-500 transition-colors"><Search size={18} /></button>
+            <button className="hover:text-neutral-500 transition-colors relative">
+              <ShoppingBag size={18} />
+              <span className="absolute -top-1.5 -right-1.5 bg-primary text-white text-[9px] w-3.5 h-3.5 flex items-center justify-center rounded-full">0</span>
+            </button>
+            <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+              {isOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
       </nav>
 
