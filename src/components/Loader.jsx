@@ -44,14 +44,19 @@ const Loader = ({ finishLoading }) => {
       className="fixed inset-0 z-[100] flex flex-col items-center justify-center overflow-hidden"
     >
       {/* Abstract Background */}
-      <div className="absolute inset-0 w-full h-full z-0">
+      <motion.div 
+        initial={{ opacity: 0, scale: 1.1 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 2.5, ease: "easeOut" }}
+        className="absolute inset-0 w-full h-full z-0"
+      >
         <img
           src="/images/abstract_bg.jpg"
           alt="Loading Background"
           className="w-full h-full object-cover opacity-60 mix-blend-multiply"
         />
         <div className="absolute inset-0 bg-[#f9f9f9]/70 backdrop-blur-sm" />
-      </div>
+      </motion.div>
 
       <div className="relative z-10 flex flex-col items-center space-y-16 w-full max-w-[800px] px-6">
         <motion.div className="flex">
